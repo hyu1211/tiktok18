@@ -2,31 +2,36 @@
 "use client";
 import React from "react";
 
+const wrapperStyle = {
+  position: "relative",
+  width: "100%",
+  maxWidth: "450px",
+  margin: "0 auto",
+  height: "100vh",
+  overflow: "hidden",
+};
+
 const containerStyle = {
   width: "100%",
-  maxWidth: "450px", // スマホ画面のような幅に固定
-  margin: "0 auto",
   height: "100vh",
   overflowY: "scroll", // 縦スクロールを有効に
   scrollSnapType: "y mandatory", // 縦方向のスクロールスナップを強制
-  position: "relative",
   scrollbarWidth: "none", // Firefox用
   msOverflowStyle: "none", // IE/Edge用
 };
 
 const headerStyle = {
-  position: "sticky",
+  position: "absolute",
   top: 0,
   left: 0,
-  width: "100%",
+  right: 0,
   textAlign: "center",
-  padding: "12px 16px",
-  zIndex: 2,
+  padding: "16px",
+  zIndex: 10,
   color: "white",
-  backgroundColor: "rgba(0,0,0,0.9)",
-  backdropFilter: "blur(10px)",
-  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
+  background:
+    "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 70%, transparent 100%)",
+  pointerEvents: "none", // ヘッダーの下の要素をクリック可能に
 };
 
 // Webkitブラウザ用のスクロールバー非表示
@@ -38,7 +43,7 @@ const scrollbarHideStyle = `
 
 export const FeedTemplate = ({ headerContent, children }) => {
   return (
-    <div>
+    <div style={wrapperStyle}>
       <style>{scrollbarHideStyle}</style>
       <header style={headerStyle}>
         <h2
@@ -47,6 +52,7 @@ export const FeedTemplate = ({ headerContent, children }) => {
             fontSize: "18px",
             fontWeight: "600",
             letterSpacing: "0.5px",
+            textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)",
           }}
         >
           {headerContent}

@@ -23,19 +23,12 @@ const containerStyle = {
   transition: "transform 0.2s ease",
 };
 
-const iconWrapperStyle = (isLiked) => ({
-  padding: "10px",
-  borderRadius: "50%",
-  backgroundColor: isLiked ? "rgba(255, 59, 92, 0.2)" : "rgba(50, 50, 50, 0.7)",
-  backdropFilter: "blur(8px)",
+const iconWrapperStyle = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   transition: "all 0.3s ease",
-  border: isLiked
-    ? "2px solid rgba(255, 59, 92, 0.5)"
-    : "2px solid rgba(255, 255, 255, 0.2)",
-});
+};
 
 export const VideoAction = ({ iconName, count, onClick, isLiked }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -50,10 +43,10 @@ export const VideoAction = ({ iconName, count, onClick, isLiked }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div style={iconWrapperStyle(isLiked)}>
+      <div style={iconWrapperStyle}>
         <Icon
           name={iconName}
-          size={28}
+          size={32}
           color={isLiked ? "#FF3B5C" : "white"}
           isFilled={isLiked}
         />
@@ -65,6 +58,8 @@ export const VideoAction = ({ iconName, count, onClick, isLiked }) => {
           fontWeight: "600",
           color: "white",
           textShadow: "0 1px 3px rgba(0, 0, 0, 0.8)",
+          textAlign: "center",
+          width: "100%",
         }}
       >
         {formatCount(count)}

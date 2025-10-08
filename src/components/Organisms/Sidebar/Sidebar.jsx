@@ -9,18 +9,8 @@ const sidebarStyle = {
   gap: "16px",
 };
 
-export const Sidebar = ({
-  likes,
-  comments,
-  shares = 0,
-  bookmarks = 0,
-  onLike,
-  onComment,
-  onShare,
-  onBookmark,
-  isLiked,
-  isBookmarked,
-}) => {
+export const Sidebar = ({ likes, comments, onLike, onComment, isLiked }) => {
+  // onComment を props で受け取る
   return (
     <div style={sidebarStyle}>
       <VideoAction
@@ -29,14 +19,11 @@ export const Sidebar = ({
         onClick={onLike}
         isLiked={isLiked}
       />
-      <VideoAction iconName="comment" count={comments} onClick={onComment} />
       <VideoAction
-        iconName="bookmark"
-        count={bookmarks}
-        onClick={onBookmark}
-        isLiked={isBookmarked}
+        iconName="comment"
+        count={comments}
+        onClick={onComment} // コメントアイコンのクリック時に onComment を実行
       />
-      <VideoAction iconName="share" count={shares} onClick={onShare} />
     </div>
   );
 };

@@ -1,22 +1,47 @@
-import React from 'react';
+"use client";
+import React from "react";
 
 const buttonStyles = {
-  padding: '8px 16px',
-  borderRadius: '8px',
-  border: '1px solid #ccc',
-  backgroundColor: '#f0f0f0',
-  color: '#333',
-  cursor: 'pointer',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  outline: 'none',
+  padding: "10px 20px",
+  borderRadius: "24px",
+  border: "none",
+  backgroundColor: "#FF3B5C",
+  color: "white",
+  cursor: "pointer",
+  fontSize: "14px",
+  fontWeight: "600",
+  outline: "none",
+  transition: "all 0.2s ease",
 };
 
-export const Button = ({ children, onClick, style, ...props }) => {
+export const Button = ({ children, onClick, style, disabled, ...props }) => {
+  const finalStyle = {
+    ...buttonStyles,
+    ...style,
+    ...(disabled && {
+      backgroundColor: "#ccc",
+      cursor: "not-allowed",
+      opacity: 0.6,
+    }),
+  };
+
   return (
     <button
       onClick={onClick}
-      style={{ ...buttonStyles, ...style }}
+      style={finalStyle}
+      disabled={disabled}
+      onMouseEnter={(e) => {
+        if (!disabled) {
+          e.target.style.backgroundColor = "#E6355A";
+          e.target.style.transform = "scale(1.02)";
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!disabled) {
+          e.target.style.backgroundColor = "#FF3B5C";
+          e.target.style.transform = "scale(1)";
+        }
+      }}
       {...props}
     >
       {children}
