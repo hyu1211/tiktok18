@@ -1,4 +1,5 @@
 // src/components/1_atoms/Typography.jsx
+"use client";
 import React from "react";
 
 const baseStyle = {

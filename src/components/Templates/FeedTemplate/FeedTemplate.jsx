@@ -1,4 +1,5 @@
 // src/components/4_templates/FeedTemplate.jsx
+"use client";
 import React from "react";
 
 const containerStyle = {
@@ -19,11 +20,13 @@ const headerStyle = {
   left: 0,
   width: "100%",
   textAlign: "center",
-  padding: "16px",
+  padding: "12px 16px",
   zIndex: 2,
   color: "white",
-  backgroundColor: "rgba(0,0,0,0.8)",
+  backgroundColor: "rgba(0,0,0,0.9)",
   backdropFilter: "blur(10px)",
+  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
 };
 
 // Webkitブラウザ用のスクロールバー非表示
@@ -38,7 +41,16 @@ export const FeedTemplate = ({ headerContent, children }) => {
     <div>
       <style>{scrollbarHideStyle}</style>
       <header style={headerStyle}>
-        <h2>{headerContent}</h2>
+        <h2
+          style={{
+            margin: 0,
+            fontSize: "18px",
+            fontWeight: "600",
+            letterSpacing: "0.5px",
+          }}
+        >
+          {headerContent}
+        </h2>
       </header>
       <main style={containerStyle}>{children}</main>
     </div>

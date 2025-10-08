@@ -12,14 +12,27 @@ const globalStyles = `
 
   html, body {
     height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background-color: #000;
     color: #fff;
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   #__next {
     height: 100%;
+  }
+
+  /* タップ時のハイライト効果を削除 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* テキストは選択可能に */
+  p, span, h1, h2, h3, h4, h5, h6 {
+    user-select: text;
   }
 `;
 

@@ -1,4 +1,5 @@
 // src/components/Molecules/UserInfo/UserInfo.jsx
+"use client";
 import React from "react";
 import { Avatar } from "@/components/Atoms/Avatar/Avatar";
 import { Typography } from "@/components/Atoms/Typography/Typography";
@@ -17,8 +18,19 @@ export const UserInfo = ({ user, style }) => {
 
   return (
     <div style={{ ...containerStyle, ...style }}>
-      <Avatar src={user.avatarUrl} alt={user.name} size={40} />
-      <Typography variant="h2" style={{ fontWeight: "600" }}>
+      <Avatar
+        src={user.avatarUrl}
+        alt={user.name}
+        size={40}
+        style={{ border: "2px solid white" }}
+      />
+      <Typography
+        variant="h2"
+        style={{
+          fontWeight: "600",
+          textShadow: "inherit",
+        }}
+      >
         {user.name}
       </Typography>
     </div>
