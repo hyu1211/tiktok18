@@ -1,0 +1,44 @@
+.feedTemplate {
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  z-index: 3;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerTitle {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.main {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  height: calc(100vh - 4rem);
+  margin-top: 4rem;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

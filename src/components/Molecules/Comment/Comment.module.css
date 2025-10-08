@@ -1,0 +1,24 @@
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentUserName {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.commentText {
+  color: #1f2937;
+  line-height: 1.5;
+}

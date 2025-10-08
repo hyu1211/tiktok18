@@ -1,0 +1,67 @@
+.button {
+  padding: 0.625rem 1.25rem;
+  border-radius: 1.5rem;
+  border: none;
+  background-color: #ff3b5c;
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover:not(.buttonDisabled) {
+  background-color: #e6355a;
+  transform: scale(1.02);
+}
+
+.button:active:not(.buttonDisabled) {
+  transform: scale(0.98);
+}
+
+.buttonDisabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.buttonDisabled:hover {
+  background-color: #ccc;
+  transform: none;
+}
+
+.buttonVariantSecondary {
+  background-color: #6b7280;
+}
+
+.buttonVariantSecondary:hover:not(.buttonDisabled) {
+  background-color: #4b5563;
+}
+
+.buttonVariantOutline {
+  background-color: transparent;
+  border: 2px solid #ff3b5c;
+  color: #ff3b5c;
+}
+
+.buttonVariantOutline:hover:not(.buttonDisabled) {
+  background-color: #ff3b5c;
+  color: white;
+}
+
+.buttonSizeSmall {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.buttonSizeLarge {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}

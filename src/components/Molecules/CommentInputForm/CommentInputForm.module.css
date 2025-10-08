@@ -1,0 +1,14 @@
+.commentInputForm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.commentInput {
+  flex-grow: 1;
+}
+
+.commentSubmitButton {
+  flex-shrink: 0;
+}

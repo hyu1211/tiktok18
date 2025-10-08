@@ -1,0 +1,62 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.6));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.icon:active {
+  transform: scale(0.95);
+}
+
+.iconSizeSmall {
+  width: 1rem;
+  height: 1rem;
+}
+
+.iconSizeMedium {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.iconSizeLarge {
+  width: 2rem;
+  height: 2rem;
+}
+
+.iconColorPrimary {
+  color: #1f2937;
+}
+
+.iconColorSecondary {
+  color: #6b7280;
+}
+
+.iconColorWhite {
+  color: white;
+}
+
+.iconColorRed {
+  color: #dc2626;
+}
+
+.iconColorError {
+  color: #dc2626;
+}
+
+.iconColorSuccess {
+  color: #059669;
+}
+
+.iconFilled {
+  fill: currentColor;
+}
+
+.iconOutlined {
+  fill: none;
+}

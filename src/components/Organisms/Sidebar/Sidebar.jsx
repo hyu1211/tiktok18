@@ -1,29 +1,36 @@
 // src/components/Organisms/Sidebar/Sidebar.jsx
-"use client";
 import React from "react";
 import { VideoAction } from "@/components/Molecules/VideoAction/VideoAction";
+import styles from "./Sidebar.module.css";
 
-const sidebarStyle = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "16px",
-};
-
-export const Sidebar = ({ likes, comments, onLike, onComment, isLiked }) => {
-  // onComment を props で受け取る
+export const Sidebar = ({
+  likes,
+  comments,
+  bookmarks,
+  shares,
+  onLike,
+  onComment,
+  onBookmark,
+  onShare,
+  isLiked,
+  isBookmarked,
+}) => {
   return (
-    <div style={sidebarStyle}>
+    <div className={styles.sidebar}>
       <VideoAction
         iconName="heart"
         count={likes}
         onClick={onLike}
         isLiked={isLiked}
       />
+      <VideoAction iconName="comment" count={comments} onClick={onComment} />
       <VideoAction
-        iconName="comment"
-        count={comments}
-        onClick={onComment} // コメントアイコンのクリック時に onComment を実行
+        iconName="bookmark"
+        count={bookmarks}
+        onClick={onBookmark}
+        isLiked={isBookmarked}
       />
+      <VideoAction iconName="share" count={shares} onClick={onShare} />
     </div>
   );
 };

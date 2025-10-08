@@ -1,18 +1,9 @@
 // src/components/Molecules/CommentInputForm/CommentInputForm.jsx
-"use client";
 import React, { useState } from "react";
 import { Avatar } from "@/components/Atoms/Avatar/Avatar";
 import { Input } from "@/components/Atoms/Input/Input";
 import { Button } from "@/components/Atoms/Button/Button";
-
-const formStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  width: "100%",
-  padding: "12px 0",
-  borderTop: "1px solid #f0f0f0",
-};
+import styles from "./CommentInputForm.module.css";
 
 export const CommentInputForm = ({ currentUser, onSubmit }) => {
   const [comment, setComment] = useState("");
@@ -21,20 +12,20 @@ export const CommentInputForm = ({ currentUser, onSubmit }) => {
     e.preventDefault();
     if (comment.trim()) {
       onSubmit(comment);
-      setComment(""); // 送信後にフォームをクリア
+      setComment("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
-      <Avatar src={currentUser.avatarUrl} alt={currentUser.name} size={36} />
+    <form onSubmit={handleSubmit} className={styles.commentInputForm}>
+      <Avatar src={currentUser.avatarUrl} alt={currentUser.name} size={40} />
       <Input
         placeholder="コメントを追加..."
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        style={{ flexGrow: 1 }}
+        className={styles.commentInput}
       />
-      <Button type="submit" disabled={!comment.trim()}>
+      <Button type="submit" className={styles.commentSubmitButton}>
         送信
       </Button>
     </form>

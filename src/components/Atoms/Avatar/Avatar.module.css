@@ -1,0 +1,30 @@
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #eee;
+  display: block;
+}
+
+.avatarBorder {
+  border: 2px solid white;
+}
+
+.avatarSizeSmall {
+  width: 32px;
+  height: 32px;
+}
+
+.avatarSizeMedium {
+  width: 48px;
+  height: 48px;
+}
+
+.avatarSizeLarge {
+  width: 64px;
+  height: 64px;
+}
+
+.avatarSizeXLarge {
+  width: 96px;
+  height: 96px;
+}

@@ -1,6 +1,58 @@
 export const metadata = {
-  title: "TikTok風動画アプリ",
-  description: "簡易的な動画再生アプリ",
+  title: "InspireUp - 動画共有プラットフォーム",
+  description:
+    "ダンス、料理、ペット、フィットネス、メイクなどの動画を共有・発見できるプラットフォーム。みんなのクリエイティビティをインスパイアしよう！",
+  keywords: [
+    "動画",
+    "共有",
+    "ダンス",
+    "料理",
+    "ペット",
+    "フィットネス",
+    "メイク",
+    "クリエイティブ",
+  ],
+  authors: [{ name: "InspireUpチーム" }],
+  creator: "InspireUp",
+  publisher: "InspireUp",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  ),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "InspireUp - 動画共有プラットフォーム",
+    description:
+      "ダンス、料理、ペット、フィットネス、メイクなどの動画を共有・発見できるプラットフォーム",
+    url: "/",
+    siteName: "InspireUp",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "InspireUp - 動画共有プラットフォーム",
+    description:
+      "ダンス、料理、ペット、フィットネス、メイクなどの動画を共有・発見できるプラットフォーム",
+    creator: "@inspireup",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 const globalStyles = `

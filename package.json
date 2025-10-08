@@ -1,12 +1,16 @@
 {
-  "name": "tiktok18",
-  "version": "0.1.0",
+  "name": "inspireup",
+  "version": "1.0.0",
+  "description": "動画共有プラットフォーム - ダンス、料理、ペット、フィットネス、メイクなどの動画を共有・発見できるプラットフォーム",
   "private": true,
+  "author": "InspireUpチーム",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview": "next build && next start"
   },
   "dependencies": {
     "react": "19.1.0",
@@ -23,5 +27,25 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "@eslint/eslintrc": "^3"
-  }
+  },
+  "keywords": [
+    "video",
+    "sharing",
+    "social-media",
+    "react",
+    "next.js",
+    "dance",
+    "cooking",
+    "pets",
+    "fitness",
+    "makeup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/inspireup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/inspireup/issues"
+  },
+  "homepage": "https://inspireup.vercel.app"
 }

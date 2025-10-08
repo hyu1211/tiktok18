@@ -1,0 +1,55 @@
+.commentSection {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 28rem;
+  height: 75%;
+  background-color: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.commentSection.hidden {
+  transform: translateX(-50%) translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #1f2937;
+}
+
+.commentTitle {
+  text-align: center;
+  color: #1f2937;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.commentsContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}

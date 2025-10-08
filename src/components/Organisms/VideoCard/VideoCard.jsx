@@ -5,35 +5,7 @@ import { UserInfo } from "@/components/Molecules/UserInfo/UserInfo";
 import { Typography } from "@/components/Atoms/Typography/Typography";
 import { Sidebar } from "@/components/Organisms/Sidebar/Sidebar";
 import { CommentSection } from "@/components/Organisms/CommentSection/CommentSection";
-
-const cardStyle = {
-  position: "relative",
-  width: "100%",
-  height: "100vh",
-  backgroundColor: "black",
-  scrollSnapAlign: "start",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-const videoStyle = {
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  cursor: "pointer",
-};
-
-const overlayStyle = {
-  position: "absolute",
-  bottom: "20px",
-  left: "20px",
-  color: "white",
-  zIndex: 5,
-  textShadow: "0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6)",
-  maxWidth: "calc(100% - 120px)",
-  transition: "bottom 0.3s ease-in-out",
-};
+import styles from "./VideoCard.module.css";
 
 // 現在ログインしているユーザーのダミーデータ
 const currentUser = {
@@ -46,9 +18,18 @@ export const VideoCard = ({ videoData }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(videoData.likes);
 
-  // コメント機能の状態
+  // コメント機能の状態 - 初期状態は閉じた状態
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [comments, setComments] = useState(videoData.comments);
+
+  // ブックマーク機能の状態
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [bookmarksCount, setBookmarksCount] = useState(
+    videoData.bookmarks || 0
+  );
+
+  // 共有機能の状態
+  const [sharesCount, setSharesCount] = useState(videoData.shares || 0);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -57,6 +38,35 @@ export const VideoCard = ({ videoData }) => {
 
   const handleToggleComment = () => {
     setIsCommentOpen(!isCommentOpen);
+  };
+
+  const handleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+    setBookmarksCount(isBookmarked ? bookmarksCount - 1 : bookmarksCount + 1);
+  };
+
+  const handleShare = () => {
+    // 共有機能の実装（ブラウザの共有APIやクリップボードへのコピーなど）
+    if (navigator.share) {
+      navigator
+        .share({
+          title: videoData.description,
+          text: videoData.description,
+          url: window.location.href,
+        })
+        .catch(console.error);
+    } else {
+      // フォールバック: URLをクリップボードにコピー
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          alert("動画のURLをクリップボードにコピーしました！");
+        })
+        .catch(() => {
+          alert("動画を共有しました！");
+        });
+    }
+    setSharesCount(sharesCount + 1);
   };
 
   const handleAddNewComment = (newCommentText) => {
@@ -68,19 +78,27 @@ export const VideoCard = ({ videoData }) => {
     setComments([...comments, newComment]);
   };
 
-  const sidebarContainerStyle = {
-    position: "absolute",
-    bottom: isCommentOpen ? "52vh" : "20px",
-    right: "20px",
-    zIndex: 5,
-    transition: "bottom 0.3s ease-in-out",
-  };
+  const overlayClasses = [
+    styles.overlay,
+    isCommentOpen ? styles.overlay.commentsOpen : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const sidebarContainerClasses = [
+    styles.sidebarContainer,
+    isCommentOpen
+      ? styles.sidebarContainer.commentsOpen
+      : styles.sidebarContainer.commentsClosed,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <div style={cardStyle}>
+    <div className={styles.videoCard}>
       <video
         src={videoData.videoUrl}
-        style={videoStyle}
+        className={styles.video}
         controls
         autoPlay
         loop
@@ -89,32 +107,25 @@ export const VideoCard = ({ videoData }) => {
         preload="metadata"
       />
 
-      <div
-        style={{
-          ...overlayStyle,
-          bottom: isCommentOpen ? "52vh" : "20px",
-        }}
-      >
+      <div className={overlayClasses}>
         <UserInfo user={videoData.user} />
-        <Typography
-          variant="body"
-          style={{
-            marginTop: "8px",
-            color: "white",
-            lineHeight: "1.5",
-          }}
-        >
+        <Typography variant="body" className={styles.description}>
           {videoData.description}
         </Typography>
       </div>
 
-      <div style={sidebarContainerStyle}>
+      <div className={sidebarContainerClasses}>
         <Sidebar
           likes={likesCount}
           comments={comments.length}
+          bookmarks={bookmarksCount}
+          shares={sharesCount}
           isLiked={isLiked}
+          isBookmarked={isBookmarked}
           onLike={handleLike}
           onComment={handleToggleComment}
+          onBookmark={handleBookmark}
+          onShare={handleShare}
         />
       </div>
 

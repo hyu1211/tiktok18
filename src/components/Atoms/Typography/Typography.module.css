@@ -1,0 +1,103 @@
+.typography {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.typographyH1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.typographyH2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.75rem;
+}
+
+.typographyH3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.typographyBody {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+}
+
+.typographyBodyLarge {
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 1.75rem;
+}
+
+.typographyCaption {
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1rem;
+}
+
+.typographySmall {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.25rem;
+}
+
+.typographyColorPrimary {
+  color: #1f2937;
+}
+
+.typographyColorSecondary {
+  color: #6b7280;
+}
+
+.typographyColorWhite {
+  color: white;
+}
+
+.typographyColorError {
+  color: #dc2626;
+}
+
+.typographyAlignCenter {
+  text-align: center;
+}
+
+.typographyAlignRight {
+  text-align: right;
+}
+
+.typographyAlignLeft {
+  text-align: left;
+}
+
+.typographyWeightLight {
+  font-weight: 300;
+}
+
+.typographyWeightNormal {
+  font-weight: 400;
+}
+
+.typographyWeightMedium {
+  font-weight: 500;
+}
+
+.typographyWeightSemibold {
+  font-weight: 600;
+}
+
+.typographyWeightBold {
+  font-weight: 700;
+}
+
+.typographyUnderline {
+  text-decoration: underline;
+}
+
+.typographyLineThrough {
+  text-decoration: line-through;
+}
