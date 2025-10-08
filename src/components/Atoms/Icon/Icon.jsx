@@ -56,6 +56,70 @@ const ICONS = {
       <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
     </svg>
   ),
+  home: (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 9.5L12 3l9 6.5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9,22 9,12 15,12 15,22"></polyline>
+    </svg>
+  ),
+  search: (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="M21 21l-4.35-4.35"></path>
+    </svg>
+  ),
+  plus: (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  ),
+  user: (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+  ),
+  message: (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  ),
 };
 
 // 動的なアイコンコンポーネントを生成する関数
@@ -119,6 +183,11 @@ const HeartIcon = createIconComponent("heart");
 const CommentIcon = createIconComponent("comment");
 const BookmarkIcon = createIconComponent("bookmark");
 const ShareIcon = createIconComponent("share");
+const HomeIcon = createIconComponent("home");
+const SearchIcon = createIconComponent("search");
+const PlusIcon = createIconComponent("plus");
+const UserIcon = createIconComponent("user");
+const MessageIcon = createIconComponent("message");
 
 export const Icon = ({ name, ...props }) => {
   switch (name) {
@@ -130,6 +199,16 @@ export const Icon = ({ name, ...props }) => {
       return <BookmarkIcon {...props} />;
     case "share":
       return <ShareIcon {...props} />;
+    case "home":
+      return <HomeIcon {...props} />;
+    case "search":
+      return <SearchIcon {...props} />;
+    case "plus":
+      return <PlusIcon {...props} />;
+    case "user":
+      return <UserIcon {...props} />;
+    case "message":
+      return <MessageIcon {...props} />;
     default:
       return null;
   }

@@ -13,7 +13,7 @@ const currentUser = {
   avatarUrl: "https://i.pravatar.cc/150?u=c",
 };
 
-export const VideoCard = ({ videoData }) => {
+export const VideoCard = ({ videoData, onNavigateToProfile }) => {
   // いいね機能の状態
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(videoData.likes);
@@ -46,7 +46,6 @@ export const VideoCard = ({ videoData }) => {
   };
 
   const handleShare = () => {
-    // 共有機能の実装（ブラウザの共有APIやクリップボードへのコピーなど）
     if (navigator.share) {
       navigator
         .share({
@@ -56,15 +55,10 @@ export const VideoCard = ({ videoData }) => {
         })
         .catch(console.error);
     } else {
-      // フォールバック: URLをクリップボードにコピー
       navigator.clipboard
         .writeText(window.location.href)
-        .then(() => {
-          alert("動画のURLをクリップボードにコピーしました！");
-        })
-        .catch(() => {
-          alert("動画を共有しました！");
-        });
+        .then(() => alert("動画のURLをクリップボードにコピーしました！"))
+        .catch(() => alert("動画を共有しました！"));
     }
     setSharesCount(sharesCount + 1);
   };

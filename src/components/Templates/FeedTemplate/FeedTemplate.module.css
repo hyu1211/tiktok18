@@ -1,44 +1,77 @@
 .feedTemplate {
   width: 100%;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 28rem;
-  margin: 0 auto;
-  text-align: center;
-  padding: 1rem;
-  z-index: 3;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.headerTitle {
-  font-weight: bold;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   width: 100%;
   max-width: 28rem;
   margin: 0 auto;
-  height: calc(100vh - 4rem);
-  margin-top: 4rem;
+  height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 28rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  z-index: 10;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.navButtonActive {
+  color: white;
+}
+
+.navButtonCenter {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.25rem;
+}
+
+.navButtonCenter:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
 .main::-webkit-scrollbar {
   display: none;
-}
-
-.main {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

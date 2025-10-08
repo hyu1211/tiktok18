@@ -1,6 +1,5 @@
 // src/app/page.jsx
-"use client"; // クライアントコンポーネントとして指定
-
+"use client";
 import React, { useState, useEffect } from "react";
 import { FeedTemplate } from "@/components/Templates/FeedTemplate/FeedTemplate";
 import { VideoCard } from "@/components/Organisms/VideoCard/VideoCard";
@@ -41,9 +40,6 @@ export default function HomePage() {
   }, []);
 
   const handleRetry = () => {
-    setLoading(true);
-    setError(null);
-    // 同じuseEffectが再実行されるので、明示的に再フェッチする必要はない
     window.location.reload();
   };
 
@@ -77,7 +73,7 @@ export default function HomePage() {
   }
 
   return (
-    <FeedTemplate headerContent="おすすめ">
+    <FeedTemplate>
       {videoData.length > 0 ? (
         videoData.map((video) => <VideoCard key={video.id} videoData={video} />)
       ) : (
