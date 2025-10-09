@@ -51,7 +51,11 @@ const UserProfilePage = () => {
         <button onClick={() => router.back()} className={styles.backButton}>
           ←
         </button>
-        <Typography variant="h3" weight="bold" style={{ color: "#ffffff" }}>
+        <Typography
+          variant="h3"
+          weight="bold"
+          style={{ color: "#ffffff", fontSize: "1.25rem" }}
+        >
           {userData.displayName}
         </Typography>
       </header>
